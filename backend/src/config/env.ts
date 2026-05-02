@@ -39,4 +39,28 @@ const envSchema = z.object({
   QUESTION_CACHE_ENABLED: z.string().default("true")
 });
 
-export const env = envSchema.parse(envInput);
+const parsedEnv = envSchema.safeParse(envInput);
+
+if (!parsedEnv.success) {
+  const missingKeys = parsedEnv.error.issues
+    .filter((issue) => issue.code === "invalid_type" && issue.received === "undefined")
+    .map((issue) => issue.path.join("."))
+    .filter((key) => key.length > 0);
+
+  const details = parsedEnv.error.issues
+    .map((issue) => `${issue.path.join(".") || "env"}: ${issue.message}`)
+    .join("\n");
+
+  throw new Error(
+    [
+      "Invalid environment configuration.",
+      missingKeys.length > 0
+        ? `Missing required environment variables: ${missingKeys.join(", ")}`
+        : "One or more environment variables are invalid.",
+      "If you are deploying on Render, add these variables in the service Environment settings.",
+      details
+    ].join("\n")
+  );
+}
+
+export const env = parsedEnv.data;
