@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@langchain/google-genai": "^0.1.6",
+    "@langchain/openai": "^0.2.7",
+    "@rag-tool/rag": "workspace:*",
+    "@rag-tool/shared": "workspace:*",
+    "@supabase/supabase-js": "^2.49.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "langchain": "^0.2.20",
+    "youtube-transcript": "^1.2.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

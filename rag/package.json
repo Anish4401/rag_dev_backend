@@ -1,0 +1,20 @@
+{
+  "name": "@rag-tool/rag",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@langchain/openai": "^0.2.7",
+    "@rag-tool/shared": "workspace:*",
+    "langchain": "^0.2.20"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
