@@ -10,6 +10,7 @@ config({ path: resolve(__dirname, "../../../.env") });
 
 const envInput = {
   ...process.env,
+  BACKEND_PORT: process.env.BACKEND_PORT ?? process.env.PORT,
   LLM_API_KEY: process.env.LLM_API_KEY ?? process.env.OPENAI_API_KEY,
   LLM_BASE_URL: process.env.LLM_BASE_URL ?? process.env.OPENAI_BASE_URL,
   LLM_MODEL: process.env.LLM_MODEL ?? process.env.EMBEDDING_CHAT_MODEL,

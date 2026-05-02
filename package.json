@@ -4,8 +4,10 @@
   "version": "0.1.0",
   "packageManager": "pnpm@10.0.0",
   "scripts": {
-    "dev:backend": "pnpm --filter backend dev",
-    "build": "pnpm -r build",
-    "typecheck": "pnpm -r typecheck"
+    "dev": "corepack pnpm --filter backend dev",
+    "dev:backend": "corepack pnpm --filter backend dev",
+    "start": "corepack pnpm --filter backend start",
+    "build": "corepack pnpm -r build",
+    "typecheck": "corepack pnpm -r typecheck"
   }
 }
